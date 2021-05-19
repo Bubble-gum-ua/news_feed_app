@@ -1,18 +1,18 @@
 import './NewsListComponentStyles.css';
 
-export const NewsListComponent = () => {
+export const NewsListComponent = (props) => {
+    let news = props.news;
+
     return (
         <div className="newsCardWrapper">
-            <div> Here a dynamic news</div>
-            <span>Image new</span>
-            <h3>Title</h3>
+            <img className="newsImages" src={news.image} alt="newsImg"/>
+            <h3> {news.title}</h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                {news.description}
             </p>
             <div className="newsFooter">
-                <p>Date</p>
-                <button> Detail button</button>
+                <p>{news.date}</p>
+                <p> Read more</p>
             </div>
         </div>
     )
