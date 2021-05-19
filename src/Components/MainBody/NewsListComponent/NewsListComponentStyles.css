@@ -1,0 +1,10 @@
+.newsCardWrapper {
+    width: 300px;
+    padding: 5px;
+}
+
+.newsFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

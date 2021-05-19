@@ -1,0 +1,16 @@
+.mainNewsWrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.descriptionWrapper {
+    width: 300px;
+}
+
+.mainNewsFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
