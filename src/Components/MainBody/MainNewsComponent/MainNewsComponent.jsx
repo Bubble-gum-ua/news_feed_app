@@ -1,22 +1,26 @@
 import './MainNewsComponent.css'
 
-export const MainNewsComponent = () => {
+
+export const MainNewsComponent = (props) => {
+    let news = props?.news[0]
+
+
     return (
         <div className="mainNewsWrapper">
             <div className="descriptionWrapper">
-                <h3>Title</h3>
+                <h3>{news.title}</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    {news.description}
                 </p>
                 <div className="mainNewsFooter">
-                    <p>Date</p>
-                    <button> Detail button</button>
+                    <p>{news.date}</p>
+                    <p> Read more</p>
                 </div>
             </div>
-            <div>
-                <h2>Here image</h2>
+            <div >
+                <img className="mainNewsImage" src={news.image} alt="mainNewsCard"/>
             </div>
         </div>
     )
+
 }

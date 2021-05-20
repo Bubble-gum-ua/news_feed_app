@@ -1,27 +1,49 @@
 import {MainNewsComponent} from "./MainNewsComponent/MainNewsComponent";
 import {NewsListComponent} from "./NewsListComponent/NewsListComponent";
 import './MainBody.css';
-import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
 import {getNewsData} from "../Redux/Reducer";
 
 
 export const MainBody = () => {
-    const dispatch = useDispatch()
+
     let news = useSelector(state => state.news.news[0])
-    console.log("news", news)
+    const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(getNewsData('ADD'))
     }, [dispatch])
 
-    let cardItem = news?.map(c => <NewsListComponent key={c.id} news={c}/>)
+    function mainCard(news) {
+        if (news) {
+            return (
+                <MainNewsComponent news={news}/>
+            )
+        }
+    }
+
+    function newsCardItem(news) {
+        if (news) {
+            let newsArr = news.slice(1,10)
+            let cardItem = newsArr.map(c => <NewsListComponent key={c.id} news={c}/>)
+            return (
+                <div className="newsCardMainList">
+                    {cardItem}
+                </div>
+            )
+        }
+    }
+
+
     return (
         <div>
-            HERE IS MAIN BODY
-            <MainNewsComponent/>
-            <div className="newsCardMainList">
-                {cardItem}
+            {mainCard(news)}
+            <div >
+                {newsCardItem(news)}
             </div>
         </div>
     )
+
+
 }

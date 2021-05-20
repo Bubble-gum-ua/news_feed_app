@@ -3,7 +3,7 @@ import './NewsListComponentStyles.css';
 export const NewsListComponent = (props) => {
     let news = props.news;
 
-    console.log("newsinset", news)
+
     return (
         <div className="newsCardWrapper">
             <img className="newsImages" src={news.image} alt="newsImg"/>

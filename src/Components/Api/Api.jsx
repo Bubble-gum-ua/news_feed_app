@@ -9,12 +9,12 @@ const options = {
         'x-rapidapi-host': 'webit-news-search.p.rapidapi.com'
     }
 };
-
+/*
 axios.request(options).then(function (response) {
     console.log(response.data);
 }).catch(function (error) {
     console.error(error);
-});
+});*/
 
 
 export const newsApi = {
