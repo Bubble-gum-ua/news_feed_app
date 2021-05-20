@@ -27,7 +27,6 @@ export const getNewsData = (action) => {
     return async (dispatch, getState) => {
         if (action === 'ADD') {
             let result = await newsApi.getNews()
-            console.log("result",result)
             dispatch(addNewsData(result.data.results))
         }
     }
