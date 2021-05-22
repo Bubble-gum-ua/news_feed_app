@@ -6,7 +6,7 @@ export const MainNewsComponent = (props) => {
     let news = props?.news[0]
     let history = useHistory()
     const openDetailPage = () => {
-        history.push(`/${news.title}`)
+        history.push(`/${news.id}`)
     }
     const useStyles = makeStyles(() => ({
         root: {

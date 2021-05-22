@@ -35,7 +35,7 @@ export const NewsListComponent = (props) => {
     }));
 
     const openDetailPage = () => {
-        history.push(`/${news.title}`)
+        history.push(`/${news.id}`)
     }
 
     function MediaCard() {
@@ -46,7 +46,7 @@ export const NewsListComponent = (props) => {
                     <CardMedia
                         className={classes.media}
                         image={news.image}
-                        title="news Title"
+                        title={news.title}
                         onClick={openDetailPage}
                     />
                     <CardContent>
