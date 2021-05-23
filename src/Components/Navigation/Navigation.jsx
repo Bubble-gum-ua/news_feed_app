@@ -1,10 +1,12 @@
-import {Button, makeStyles, TextField} from "@material-ui/core";
+import {Button, makeStyles} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
-import SearchIcon from '@material-ui/icons/Search';
 import {useHistory} from "react-router";
 import {useState} from "react";
 import "./Navigation.css"
+import {getNewsByCategory, getNewsData} from "../Redux/Reducer";
+import {useDispatch} from "react-redux";
+import {SearchBar} from "./SearchBar/SearchBar";
 
 export const Navigation = () => {
     const useStyles = makeStyles(() => ({
@@ -28,13 +30,14 @@ export const Navigation = () => {
             categoriesWrapper: {
                 display: "flex",
                 justifyContent: "space-between",
-                position: "relative"
+                position: "relative",
+                cursor: "pointer"
             },
             button: {
                 position: "absolute",
                 right: "15px"
             },
-            dropDownItem: {
+            dropDownItems: {
                 display: "flex",
                 justifyContent: "space-between",
                 width: "140px",
@@ -43,15 +46,21 @@ export const Navigation = () => {
                 right: "20%",
                 background: "white",
                 padding: "15px",
-                cursor: "pointer",
                 borderRadius: "5px"
             },
+            dropdownItem: {
+                "&:hover": {
+                    color: "#2F80ED",
+                    cursor: "pointer",
+                }
+            }
         }
     ));
 
     const classes = useStyles();
 
     let history = useHistory();
+    const dispatch = useDispatch()
 
     const redirectToMainPage = () => {
         history.push('/')
@@ -82,6 +91,10 @@ export const Navigation = () => {
             return <MenuIcon/>
         }
     }
+    const trendingNews = () => {
+
+        dispatch(getNewsData('ADD'))
+    }
     const categoriesRender = () => {
         if (open === true) {
             return (
@@ -91,29 +104,103 @@ export const Navigation = () => {
                     >
                         Categories
                     </div>
-                    <div>
+                    <div onClick={trendingNews}>
                         ⚡️ Trending news
                     </div>
                 </div>
             )
         }
     }
+    const sortSport = () => {
+        dispatch(getNewsByCategory("sport", "SORT"))
+        setHovered(false)
+    }
+    const sortWorld = () => {
+        dispatch(getNewsByCategory("World", "SORT"))
+        setHovered(false)
+    }
+    const sortCovid = () => {
+        dispatch(getNewsByCategory("Covid", "SORT"))
+        setHovered(false)
+    }
+    const sortBusiness = () => {
+        dispatch(getNewsByCategory("Business", "SORT"))
+        setHovered(false)
+    }
+    const sortPolitics = () => {
+        dispatch(getNewsByCategory("Politics", "SORT"))
+        setHovered(false)
+    }
+    const sortScience = () => {
+        dispatch(getNewsByCategory("Science", "SORT"))
+        setHovered(false)
+    }
+    const sortReligion = () => {
+        dispatch(getNewsByCategory("Religion", "SORT"))
+        setHovered(false)
+    }
+    const sortHealth = () => {
+        dispatch(getNewsByCategory("Health", "SORT"))
+        setHovered(false)
+    }
+
 
     const subCategoryRender = () => {
         if (hovered === true) {
             return (
-                <div className={`${classes.dropDownItem}  ${"arrow_box"}`}>
+                <div className={`${classes.dropDownItems}  ${"arrow_box"}`}>
                     <div>
-                        Sport
-                        World
-                        Covid
-                        Business
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortSport}
+                        >
+                            Sport
+                        </div>
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortWorld}
+                        >
+                            World
+                        </div>
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortCovid}
+                        >
+                            Covid
+                        </div>
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortBusiness}
+                        >
+                            Business
+                        </div>
+
                     </div>
                     <div>
-                        Politics
-                        Science
-                        Religion
-                        Health
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortPolitics}
+                        >
+                            Politics
+                        </div>
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortScience}
+                        >
+                            Science
+                        </div>
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortReligion}
+                        >
+                            Religion
+                        </div>
+                        <div
+                            className={classes.dropdownItem}
+                            onClick={sortHealth}
+                        >
+                            Health
+                        </div>
                     </div>
                 </div>
             )
@@ -127,11 +214,7 @@ export const Navigation = () => {
             >
                 News App
             </span>
-            <div className={classes.searchBar}>
-                <SearchIcon/>
-                <TextField className={classes.textField} id="input-with-icon-grid"
-                           label="Type something to start search"/>
-            </div>
+            <SearchBar/>
             {categoriesRender()}
             {subCategoryRender()}
             <Button

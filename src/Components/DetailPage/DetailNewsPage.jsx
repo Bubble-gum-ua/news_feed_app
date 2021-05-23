@@ -8,7 +8,7 @@ export const DetailNewsPage = () => {
     let idFromRoute = useParams();
     let currentNewsItem = news.find(news => news.id === idFromRoute.id)
 
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(() => ({
         root: {
             textAlign: "center"
         },

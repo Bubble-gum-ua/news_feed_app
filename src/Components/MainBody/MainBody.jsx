@@ -3,7 +3,7 @@ import {NewsListComponent} from "./NewsListComponent/NewsListComponent";
 import './MainBody.css';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getNewsByCategory, getNewsData} from "../Redux/Reducer";
+import {getNewsData} from "../Redux/Reducer";
 import {Grid, makeStyles,} from "@material-ui/core";
 
 
@@ -21,6 +21,9 @@ export const MainBody = () => {
     useEffect(() => {
         dispatch(getNewsData('ADD'))
     }, [dispatch])
+
+
+
 
     function mainCard(news) {
         if (news) {
