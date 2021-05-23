@@ -1,6 +1,7 @@
 import {newsApi} from "../Api/Api";
 
 const ADD_NEWS = "ADD_NEWS";
+const SORT_BY_CATEGORY = "SORT_BY_CATEGORY";
 
 
 const initialState = {
@@ -24,7 +25,7 @@ export const newsReducer = (state = initialState, action) => {
 export const addNewsData = (news) => ({type: ADD_NEWS, news})
 
 export const getNewsData = (action) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         if (action === 'ADD') {
             let result = await newsApi.getNews()
             dispatch(addNewsData(result.data.results))

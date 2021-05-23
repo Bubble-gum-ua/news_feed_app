@@ -4,6 +4,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 import {useHistory} from "react-router";
 import {useState} from "react";
+import "./Navigation.css"
 
 export const Navigation = () => {
     const useStyles = makeStyles(() => ({
@@ -27,21 +28,24 @@ export const Navigation = () => {
             categoriesWrapper: {
                 display: "flex",
                 justifyContent: "space-between",
-
+                position: "relative"
             },
             button: {
                 position: "absolute",
                 right: "15px"
             },
             dropDownItem: {
-
+                display: "flex",
+                justifyContent: "space-between",
+                width: "140px",
                 position: "absolute",
-                backgroundColor: "#f1f1f1",
-                minWidth: "160px",
-                boxShadow: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-                zIndex: "1",
+                top: "50px",
+                right: "20%",
+                background: "white",
+                padding: "15px",
+                cursor: "pointer",
+                borderRadius: "5px"
             },
-
         }
     ));
 
@@ -53,11 +57,20 @@ export const Navigation = () => {
         history.push('/')
     }
     const [open, setOpen] = useState(false)
+    const [hovered, setHovered] = useState(false)
 
     function changeIco() {
         setOpen(true)
         if (open === true) {
             setOpen(false)
+            setHovered(false)
+        }
+    }
+
+    function hoveredMenu() {
+        setHovered(true)
+        if (hovered === true) {
+            setHovered(false)
         }
     }
 
@@ -74,7 +87,7 @@ export const Navigation = () => {
             return (
                 <div className={classes.categoriesWrapper}>
                     <div
-                        onMouseOver={subCategoryRender}
+                        onMouseOver={hoveredMenu}
                     >
                         Categories
                     </div>
@@ -87,31 +100,30 @@ export const Navigation = () => {
     }
 
     const subCategoryRender = () => {
-        return (
-            <div className={classes.dropDownItem}
-
-            >
-                <div>
-                    Sport
-                    World
-                    Covid
-                    Business
+        if (hovered === true) {
+            return (
+                <div className={`${classes.dropDownItem}  ${"arrow_box"}`}>
+                    <div>
+                        Sport
+                        World
+                        Covid
+                        Business
+                    </div>
+                    <div>
+                        Politics
+                        Science
+                        Religion
+                        Health
+                    </div>
                 </div>
-                <div>
-                    Politics
-                    Science
-                    Religion
-                    Health
-                </div>
-            </div>
-        )
+            )
+        }
     }
     return (
         <div className={classes.root}>
             <span
                 onClick={redirectToMainPage}
                 className={classes.logoItem}
-
             >
                 News App
             </span>
@@ -125,7 +137,6 @@ export const Navigation = () => {
             <Button
                 className={classes.button}
                 onClick={changeIco}
-
             >
                 {iconsRender()}
             </Button>

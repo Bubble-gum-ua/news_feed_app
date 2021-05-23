@@ -3,7 +3,7 @@ import {NewsListComponent} from "./NewsListComponent/NewsListComponent";
 import './MainBody.css';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getNewsData} from "../Redux/Reducer";
+import {getNewsByCategory, getNewsData} from "../Redux/Reducer";
 import {Grid, makeStyles,} from "@material-ui/core";
 
 
