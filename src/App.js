@@ -18,9 +18,6 @@ function App() {
                 <Route path="/:id">
                     <DetailNewsPage/>
                 </Route>
-                <Route path="/search_results">
-
-                </Route>
             </Switch>
             <Footer/>
         </div>

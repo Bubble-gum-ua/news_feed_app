@@ -15,6 +15,10 @@ export const MainNewsComponent = (props) => {
             flexWrap: "wrap",
             alignItems: "center",
             padding: "15px",
+            border: "1px solid #E2E2E2",
+            maxWidth: "1500px",
+            marginBottom: "15px",
+            textAlign: "left"
         },
         descriptionWrapper: {
             maxWidth: "700px"
@@ -29,6 +33,9 @@ export const MainNewsComponent = (props) => {
             cursor: "pointer"
         },
         mainNewsTitle: {
+            cursor: "pointer"
+        },
+        readMoreButton: {
             cursor: "pointer"
         }
     }))
@@ -47,7 +54,12 @@ export const MainNewsComponent = (props) => {
                 </p>
                 <div className={classes.mainNewsFooter}>
                     <span>{news.date}</span>
-                    <span> Read more</span>
+                    <span
+                        className={classes.readMoreButton}
+                        onClick={openDetailPage}
+                    >
+                        Read more
+                    </span>
                 </div>
             </div>
             <div>

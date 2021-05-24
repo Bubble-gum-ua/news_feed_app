@@ -11,9 +11,11 @@ import {SearchBar} from "./SearchBar/SearchBar";
 export const Navigation = () => {
     const useStyles = makeStyles(() => ({
             root: {
-                display: 'flex',
+                display: "flex",
                 justifyContent: 'space-around',
-                alignItems: 'center'
+                alignItems: "center",
+                height: "60px",
+                marginBottom: "30px"
             },
             textField: {
                 width: "350px"
@@ -21,7 +23,7 @@ export const Navigation = () => {
             logoItem: {
                 cursor: "pointer",
                 position: "absolute",
-                left: "20px"
+                left: "60px"
             },
             searchBar: {
                 display: "flex",
@@ -31,7 +33,8 @@ export const Navigation = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 position: "relative",
-                cursor: "pointer"
+                cursor: "pointer",
+                width: "250px"
             },
             button: {
                 position: "absolute",
@@ -83,6 +86,7 @@ export const Navigation = () => {
         }
     }
 
+//here a function for hamburger ico changing :
     const iconsRender = () => {
         if (open === true) {
             return <CloseIcon/>
@@ -92,9 +96,12 @@ export const Navigation = () => {
         }
     }
     const trendingNews = () => {
-
         dispatch(getNewsData('ADD'))
+        history.push('/')
     }
+
+    //here is categories list render:
+
     const categoriesRender = () => {
         if (open === true) {
             return (
@@ -111,6 +118,9 @@ export const Navigation = () => {
             )
         }
     }
+
+    //here is a category sorting functions:
+
     const sortSport = () => {
         dispatch(getNewsByCategory("sport", "SORT"))
         setHovered(false)
@@ -144,6 +154,7 @@ export const Navigation = () => {
         setHovered(false)
     }
 
+//here is render of subcategories by hover:
 
     const subCategoryRender = () => {
         if (hovered === true) {
@@ -206,6 +217,7 @@ export const Navigation = () => {
             )
         }
     }
+    //here is render of navigation bar:
     return (
         <div className={classes.root}>
             <span

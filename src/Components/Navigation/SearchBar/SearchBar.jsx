@@ -2,18 +2,27 @@ import SearchIcon from "@material-ui/icons/Search";
 import {Button, Input, makeStyles} from "@material-ui/core";
 import {useFormik} from "formik";
 import {useSelector} from "react-redux";
-import {useEffect, useState} from "react";
 import {SearchResultPage} from "../../SearchResultPage/SearchResultPage";
 
 export const SearchBar = () => {
     const useStyles = makeStyles(() => ({
             searchBar: {
                 display: "flex",
-                alignItems: "flex-end"
+                alignItems: "flex-end",
+                position: "relative"
             },
             inputField: {
                 width: "350px"
             },
+            searchResults: {
+                position: "absolute",
+                top: " 50px",
+                background: "white",
+                borderRadius: "5px",
+                padding: "15px",
+                zIndex: "1",
+                boxShadow: "0px 0px 4px #BDBDBD"
+            }
         }
     ));
 
@@ -25,36 +34,38 @@ export const SearchBar = () => {
         },
         onSubmit: (values) => {
             if (values !== "") {
-                return console.log("values", values)
 
             }
             formik.resetForm()
         }
     })
-    console.log("news", news)
     let searchInputValues = formik.values
-    console.log("searchInputValues", searchInputValues)
     let autoCompleteResults = []
     if (searchInputValues.title !== "" && news) {
         for (let i = 0; i < news.length; i++) {
             let searchResult = news[i].title.includes(searchInputValues.title)
-            console.log("searchResult", searchResult)
             if (searchResult === true) {
-                console.log("target", news[i].title)
                 autoCompleteResults.push(news[i])
             }
         }
     }
-    console.log("autoCompleteResults", autoCompleteResults)
 
-    function renderAutocompleteItems (autoCompleteResults)  {
-        let data = autoCompleteResults.map(a => <SearchResultPage title={a}/>)
-        console.log("asd",data)
-        return (
+    function renderAutocompleteItems(autoCompleteResults) {
+        let data = autoCompleteResults.map(a =>
             <div>
-                {data}
-            </div>
-        )
+                <ul>
+                    <li onClick={formik.resetForm}>
+                        <SearchResultPage title={a} id={a.id} key={a.id}/>
+                    </li>
+                </ul>
+            </div> )
+        if(data.length > 0){
+            return (
+                <div className={classes.searchResults}>
+                    {data}
+                </div>
+            )
+        }
     }
 
     return (

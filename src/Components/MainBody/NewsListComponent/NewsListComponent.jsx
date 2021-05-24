@@ -10,8 +10,7 @@ import {
 } from "@material-ui/core";
 
 export const NewsListComponent = (props) => {
-    let news = props.news;
-    let history = useHistory()
+
     const useStyles = makeStyles(() => ({
         root: {
             justifyContent: "center",
@@ -30,14 +29,21 @@ export const NewsListComponent = (props) => {
             height: "130px"
         },
         newsCardTitle: {
-            height: "90px"
+            height: "70px"
+        },
+        readMoreButton: {
+            cursor: "pointer"
         }
     }));
+
+    let news = props.news;
+    let history = useHistory();
 
     const openDetailPage = () => {
         history.push(`/${news.id}`)
     }
-
+    let titleForRender = news.title.substr(0,70) + '...'
+    console.log("titleForRender",titleForRender)
     function MediaCard() {
         const classes = useStyles();
         return (
@@ -56,7 +62,7 @@ export const NewsListComponent = (props) => {
                             onClick={openDetailPage}
                             className={classes.newsCardTitle}
                         >
-                            {news.title}
+                            {titleForRender}
                         </Typography>
                         <Typography
                             variant="body2"
@@ -71,7 +77,9 @@ export const NewsListComponent = (props) => {
                     <span>
                         {news.date}
                     </span>
-                    <span>
+                    <span
+                        className={classes.readMoreButton}
+                        onClick={openDetailPage}>
                         Read more
                     </span>
                 </CardActions>
