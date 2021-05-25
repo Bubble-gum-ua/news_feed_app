@@ -1,5 +1,6 @@
 import {useHistory} from "react-router";
 import {makeStyles} from "@material-ui/core";
+import {TimeConverter} from "../../Tools/TimeConverter";
 
 
 export const MainNewsComponent = (props) => {
@@ -18,7 +19,9 @@ export const MainNewsComponent = (props) => {
             border: "1px solid #E2E2E2",
             maxWidth: "1500px",
             marginBottom: "15px",
-            textAlign: "left"
+            textAlign: "left",
+            fontFamily: "Inter",
+            color: "rgba(113, 128, 150, 1)"
         },
         descriptionWrapper: {
             maxWidth: "700px"
@@ -33,10 +36,12 @@ export const MainNewsComponent = (props) => {
             cursor: "pointer"
         },
         mainNewsTitle: {
-            cursor: "pointer"
+            cursor: "pointer",
+            color: "rgba(45, 55, 72, 1)"
         },
         readMoreButton: {
-            cursor: "pointer"
+            cursor: "pointer",
+            color: "rgba(45, 55, 72, 1)"
         }
     }))
 
@@ -53,7 +58,8 @@ export const MainNewsComponent = (props) => {
                     {news.description}
                 </p>
                 <div className={classes.mainNewsFooter}>
-                    <span>{news.date}</span>
+                    <span>{TimeConverter(news.date)}</span>
+
                     <span
                         className={classes.readMoreButton}
                         onClick={openDetailPage}

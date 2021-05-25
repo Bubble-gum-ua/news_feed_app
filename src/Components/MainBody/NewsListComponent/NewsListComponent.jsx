@@ -8,6 +8,7 @@ import {
     makeStyles,
     Typography
 } from "@material-ui/core";
+import {TimeConverter} from "../../Tools/TimeConverter";
 
 export const NewsListComponent = (props) => {
 
@@ -16,23 +17,35 @@ export const NewsListComponent = (props) => {
             justifyContent: "center",
             maxWidth: "500px",
             boxShadow: "none",
-            paddingBottom: "15px"
+            paddingBottom: "15px",
+
         },
         media: {
             width: "500px",
-            height: "300px"
+            height: "300px",
+
         },
         newsCardFooter: {
             justifyContent: "space-between"
         },
         newsCardDescription: {
-            height: "130px"
+            height: "130px",
+            fontSize: "14px",
+            fontFamily: "Inter",
+            color: "rgba(113, 128, 150, 1)"
         },
         newsCardTitle: {
-            height: "70px"
+            height: "70px",
+            fontWeight: "700",
+            color: "rgba(45, 55, 72, 1)"
+        },
+        newsCardFooterDate:{
+            color: "rgba(113, 128, 150, 1)",
+            fontFamily: "Inter",
         },
         readMoreButton: {
-            cursor: "pointer"
+            cursor: "pointer",
+            fontFamily: "Inter",
         }
     }));
 
@@ -42,8 +55,8 @@ export const NewsListComponent = (props) => {
     const openDetailPage = () => {
         history.push(`/${news.id}`)
     }
-    let titleForRender = news.title.substr(0,70) + '...'
-    console.log("titleForRender",titleForRender)
+    let titleForRender = news.title.substr(0, 60) + '...'
+
     function MediaCard() {
         const classes = useStyles();
         return (
@@ -66,7 +79,6 @@ export const NewsListComponent = (props) => {
                         </Typography>
                         <Typography
                             variant="body2"
-                            color="textSecondary"
                             component="p"
                             className={classes.newsCardDescription}>
                             {news.description}
@@ -74,8 +86,8 @@ export const NewsListComponent = (props) => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions className={classes.newsCardFooter}>
-                    <span>
-                        {news.date}
+                    <span className={classes.newsCardFooterDate}>
+                        {TimeConverter(news.date)}
                     </span>
                     <span
                         className={classes.readMoreButton}

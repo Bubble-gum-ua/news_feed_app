@@ -1,6 +1,7 @@
 import {useParams} from "react-router";
 import {useSelector} from "react-redux";
 import {makeStyles} from "@material-ui/core";
+import {TimeConverter} from "../Tools/TimeConverter";
 
 
 export const DetailNewsPage = () => {
@@ -10,15 +11,41 @@ export const DetailNewsPage = () => {
 
     const useStyles = makeStyles(() => ({
         root: {
-            textAlign: "center"
+            textAlign: "center",
+            fontFamily: "Inter",
+            color: "rgba(113, 128, 150, 1)"
         },
         mainImage: {
-            height: "380px",
+            maxWidth: "1300px",
+        },
+        title: {
+            fontWeight: "700",
+            fontSize: "45px",
+            color: "rgba(45, 55, 72, 1)"
+        },
+        authorDate: {
+            display: "flex",
+            flexWrap: "wrap"
         },
         contentBlock: {
             paddingLeft: "25%",
             maxWidth: "765px",
             textAlign: "left"
+        },
+        author: {
+            color: "rgba(45, 55, 72, 1)",
+            fontWeight: "700",
+            fontSize: "18px"
+        },
+        date: {
+            paddingLeft: "15px",
+            fontSize: "18px"
+        },
+        titles: {
+            color: "rgba(45, 55, 72, 1)",
+        },
+        typography: {
+            fontSize:"16px",
         }
     }));
     const classes = useStyles();
@@ -33,23 +60,25 @@ export const DetailNewsPage = () => {
                             src={currentNewsItem?.image} alt="newsImage"/>
                     </div>
                     <div className={classes.contentBlock}>
-                        <h2>
+                        <h2 className={classes.title}>
                             {currentNewsItem.title}
                         </h2>
-                        <span>
-                            {currentNewsItem.author}
-                        </span>
-                        <span>
-                            {currentNewsItem.date}
-                        </span>
+                        <div className={classes.authorDate}>
+                             <span className={classes.author}>
+                                 {currentNewsItem.author}
+                             </span>
+                            <span className={classes.date}>
+                                 {TimeConverter(currentNewsItem.date)}
+                             </span>
+                        </div>
                         <p>
                             {currentNewsItem.description}
                         </p>
                         <div>
-                            <h4>
+                            <h4 className={classes.titles}>
                                 The standard Lorem Ipsum passage, used since the 1500s
                             </h4>
-                            <p>
+                            <p className={classes.typography}>
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                 incididunt ut
                                 labore
@@ -64,10 +93,10 @@ export const DetailNewsPage = () => {
                                 officia
                                 deserunt mollit anim id est laborum."
                             </p>
-                            <h4>
+                            <h4 className={classes.titles}>
                                 Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
                             </h4>
-                            <p>
+                            <p className={classes.typography}>
                                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                                 laudantium,
                                 totam
@@ -94,10 +123,10 @@ export const DetailNewsPage = () => {
                                 illum
                                 qui dolorem eum fugiat quo voluptas nulla pariatur?"
                             </p>
-                            <h4>
+                            <h4 className={classes.titles}>
                                 1914 translation by H. Rackham
                             </h4>
-                            <p>
+                            <p className={classes.typography}>
                                 "But I must explain to you how all this mistaken idea of denouncing pleasure and
                                 praising pain
                                 was
@@ -129,10 +158,10 @@ export const DetailNewsPage = () => {
                                 one
                                 who avoids a pain that produces no resultant pleasure?"
                             </p>
-                            <h4>
+                            <h4 className={classes.titles}>
                                 Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
                             </h4>
-                            <p>
+                            <p className={classes.typography}>
                                 "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
                                 voluptatum
                                 deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
@@ -159,10 +188,10 @@ export const DetailNewsPage = () => {
                                 aut
                                 perferendis doloribus asperiores repellat."
                             </p>
-                            <h4>
+                            <h4 className={classes.titles}>
                                 1914 translation by H. Rackham
                             </h4>
-                            <p>
+                            <p className={classes.typography}>
                                 "On the other hand, we denounce with righteous indignation and dislike men who are so
                                 beguiled
                                 and

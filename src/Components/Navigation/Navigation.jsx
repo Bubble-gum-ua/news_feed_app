@@ -15,7 +15,8 @@ export const Navigation = () => {
                 justifyContent: 'space-around',
                 alignItems: "center",
                 height: "60px",
-                marginBottom: "30px"
+                marginBottom: "30px",
+                fontFamily: "Inter",
             },
             textField: {
                 width: "350px"
