@@ -35,7 +35,7 @@ export const NewsListComponent = (props) => {
             color: "rgba(113, 128, 150, 1)"
         },
         newsCardTitle: {
-            height: "70px",
+            height: "90px",
             fontWeight: "700",
             color: "rgba(45, 55, 72, 1)"
         },

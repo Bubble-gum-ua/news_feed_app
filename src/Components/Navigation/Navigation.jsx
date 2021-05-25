@@ -14,6 +14,7 @@ export const Navigation = () => {
                 display: "flex",
                 justifyContent: 'space-around',
                 alignItems: "center",
+                flexWrap: "wrap",
                 height: "60px",
                 marginBottom: "30px",
                 fontFamily: "Inter",
@@ -52,7 +53,7 @@ export const Navigation = () => {
                 right: "20%",
                 background: "white",
                 padding: "15px",
-                borderRadius: "5px"
+                borderRadius: "5px",
             },
             dropdownItem: {
                 "&:hover": {
