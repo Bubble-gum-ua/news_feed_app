@@ -24,7 +24,9 @@ export const Navigation = () => {
             logoItem: {
                 cursor: "pointer",
                 position: "absolute",
-                left: "60px"
+                left: "60px",
+                fontWeight: "700",
+                fontSize: "20px"
             },
             searchBar: {
                 display: "flex",
