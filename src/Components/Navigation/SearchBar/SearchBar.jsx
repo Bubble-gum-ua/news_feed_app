@@ -5,14 +5,20 @@ import {useSelector} from "react-redux";
 import {SearchResultPage} from "../../SearchResultPage/SearchResultPage";
 
 export const SearchBar = () => {
-    const useStyles = makeStyles(() => ({
+    const useStyles = makeStyles((theme) => ({
             searchBar: {
                 display: "flex",
                 alignItems: "flex-end",
-                position: "relative"
+                position: "relative",
+                [theme.breakpoints.down(700)]: {
+                    marginTop: "50px"
+                },
             },
             inputField: {
-                width: "350px"
+                width:"450px",
+                [theme.breakpoints.down(700)]: {
+                    width: "300px"
+                },
             },
             searchResults: {
                 position: "absolute",
@@ -58,8 +64,8 @@ export const SearchBar = () => {
                         <SearchResultPage title={a} id={a.id} key={a.id}/>
                     </li>
                 </ul>
-            </div> )
-        if(data.length > 0){
+            </div>)
+        if (data.length > 0) {
             return (
                 <div className={classes.searchResults}>
                     {data}

@@ -9,7 +9,7 @@ import {useDispatch} from "react-redux";
 import {SearchBar} from "./SearchBar/SearchBar";
 
 export const Navigation = () => {
-    const useStyles = makeStyles(() => ({
+    const useStyles = makeStyles((theme) => ({
             root: {
                 display: "flex",
                 justifyContent: 'space-around',
@@ -26,12 +26,11 @@ export const Navigation = () => {
                 cursor: "pointer",
                 position: "absolute",
                 left: "60px",
+                [theme.breakpoints.down(700)]:{
+                  left: "20px"
+                },
                 fontWeight: "700",
                 fontSize: "20px"
-            },
-            searchBar: {
-                display: "flex",
-                alignItems: "center"
             },
             categoriesWrapper: {
                 display: "flex",
@@ -49,8 +48,14 @@ export const Navigation = () => {
                 justifyContent: "space-between",
                 width: "140px",
                 position: "absolute",
-                top: "50px",
-                right: "20%",
+                [theme.breakpoints.up(350)]: {
+                    top: "120px",
+                    right: "50%",
+                },
+                [theme.breakpoints.up(1100)]: {
+                    top: "50px",
+                    right: "20%",
+                },
                 background: "white",
                 padding: "15px",
                 borderRadius: "5px",

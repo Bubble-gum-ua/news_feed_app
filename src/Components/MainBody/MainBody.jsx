@@ -13,7 +13,7 @@ export const MainBody = () => {
     const useStyles = makeStyles(() => ({
         root: {
             justifyContent: "space-around",
-            textAlign: "left"
+            textAlign: "left",
         },
         mainBodyWrapper: {
             textAlign: "-webkit-center"

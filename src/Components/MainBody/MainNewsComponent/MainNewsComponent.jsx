@@ -9,7 +9,7 @@ export const MainNewsComponent = (props) => {
     const openDetailPage = () => {
         history.push(`/${news.id}`)
     }
-    const useStyles = makeStyles(() => ({
+    const useStyles = makeStyles((theme) => ({
         root: {
             display: "flex",
             justifyContent: "space-around",
@@ -32,8 +32,13 @@ export const MainNewsComponent = (props) => {
             flexWrap: "wrap"
         },
         mainNewsImage: {
-            width: "457px",
-            cursor: "pointer"
+            cursor: "pointer",
+            [theme.breakpoints.up(350)]:{
+                width: "350px"
+            },
+            [theme.breakpoints.up(1100)]:{
+                width: "457px"
+            },
         },
         mainNewsTitle: {
             cursor: "pointer",

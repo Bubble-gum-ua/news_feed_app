@@ -12,18 +12,20 @@ import {TimeConverter} from "../../Tools/TimeConverter";
 
 export const NewsListComponent = (props) => {
 
-    const useStyles = makeStyles(() => ({
+    const useStyles = makeStyles((theme) => ({
         root: {
             justifyContent: "center",
             maxWidth: "500px",
             boxShadow: "none",
             paddingBottom: "15px",
-
         },
         media: {
             width: "500px",
             height: "300px",
-
+            margin: "5px",
+            [theme.breakpoints.down(700)]:{
+                width: "400px"
+            }
         },
         newsCardFooter: {
             justifyContent: "space-between"

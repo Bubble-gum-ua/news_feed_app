@@ -9,18 +9,29 @@ export const DetailNewsPage = () => {
     let idFromRoute = useParams();
     let currentNewsItem = news.find(news => news.id === idFromRoute.id)
 
-    const useStyles = makeStyles(() => ({
+    const useStyles = makeStyles((theme) => ({
         root: {
             textAlign: "center",
             fontFamily: "Inter",
             color: "rgba(113, 128, 150, 1)"
         },
         mainImage: {
-            maxWidth: "1300px",
+            [theme.breakpoints.up(300)]: {
+                maxWidth: "400px",
+                marginTop: "50px",
+                minWidth: "400px"
+
+            },
+            [theme.breakpoints.up(1100)]: {
+                maxWidth: "800px"
+            },
         },
         title: {
             fontWeight: "700",
             fontSize: "45px",
+            [theme.breakpoints.down(700)]: {
+                fontSize: "30px"
+            },
             color: "rgba(45, 55, 72, 1)"
         },
         authorDate: {
@@ -28,7 +39,12 @@ export const DetailNewsPage = () => {
             flexWrap: "wrap"
         },
         contentBlock: {
-            paddingLeft: "25%",
+            [theme.breakpoints.up(300)]: {
+                padding: "15px"
+            },
+            [theme.breakpoints.up(1100)]: {
+                paddingLeft: "25%",
+            },
             maxWidth: "765px",
             textAlign: "left"
         },
@@ -45,7 +61,7 @@ export const DetailNewsPage = () => {
             color: "rgba(45, 55, 72, 1)",
         },
         typography: {
-            fontSize:"16px",
+            fontSize: "16px",
         }
     }));
     const classes = useStyles();
