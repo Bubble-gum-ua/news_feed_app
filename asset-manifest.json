@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/news_feed_app/static/css/main.524d9177.chunk.css",
-    "main.js": "/news_feed_app/static/js/main.cb91a431.chunk.js",
-    "main.js.map": "/news_feed_app/static/js/main.cb91a431.chunk.js.map",
-    "runtime-main.js": "/news_feed_app/static/js/runtime-main.274eb9bf.js",
-    "runtime-main.js.map": "/news_feed_app/static/js/runtime-main.274eb9bf.js.map",
-    "static/js/2.21682643.chunk.js": "/news_feed_app/static/js/2.21682643.chunk.js",
-    "static/js/2.21682643.chunk.js.map": "/news_feed_app/static/js/2.21682643.chunk.js.map",
-    "static/js/3.5d597c43.chunk.js": "/news_feed_app/static/js/3.5d597c43.chunk.js",
-    "static/js/3.5d597c43.chunk.js.map": "/news_feed_app/static/js/3.5d597c43.chunk.js.map",
+    "main.css": "/news_feed_app/static/css/main.8dede4e4.chunk.css",
+    "main.js": "/news_feed_app/static/js/main.c65c561c.chunk.js",
+    "main.js.map": "/news_feed_app/static/js/main.c65c561c.chunk.js.map",
+    "runtime-main.js": "/news_feed_app/static/js/runtime-main.34e726bd.js",
+    "runtime-main.js.map": "/news_feed_app/static/js/runtime-main.34e726bd.js.map",
+    "static/js/2.605b4758.chunk.js": "/news_feed_app/static/js/2.605b4758.chunk.js",
+    "static/js/2.605b4758.chunk.js.map": "/news_feed_app/static/js/2.605b4758.chunk.js.map",
+    "static/js/3.4b1e01d8.chunk.js": "/news_feed_app/static/js/3.4b1e01d8.chunk.js",
+    "static/js/3.4b1e01d8.chunk.js.map": "/news_feed_app/static/js/3.4b1e01d8.chunk.js.map",
     "index.html": "/news_feed_app/index.html",
-    "static/css/main.524d9177.chunk.css.map": "/news_feed_app/static/css/main.524d9177.chunk.css.map",
-    "static/js/2.21682643.chunk.js.LICENSE.txt": "/news_feed_app/static/js/2.21682643.chunk.js.LICENSE.txt",
+    "static/css/main.8dede4e4.chunk.css.map": "/news_feed_app/static/css/main.8dede4e4.chunk.css.map",
+    "static/js/2.605b4758.chunk.js.LICENSE.txt": "/news_feed_app/static/js/2.605b4758.chunk.js.LICENSE.txt",
     "static/media/6.b7edff4d.svg": "/news_feed_app/static/media/6.b7edff4d.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.274eb9bf.js",
-    "static/js/2.21682643.chunk.js",
-    "static/css/main.524d9177.chunk.css",
-    "static/js/main.cb91a431.chunk.js"
+    "static/js/runtime-main.34e726bd.js",
+    "static/js/2.605b4758.chunk.js",
+    "static/css/main.8dede4e4.chunk.css",
+    "static/js/main.c65c561c.chunk.js"
   ]
 }
